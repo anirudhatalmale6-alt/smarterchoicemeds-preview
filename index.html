@@ -63,19 +63,22 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .menu span{display:block;width:18px;height:2px;background:var(--ink);margin:4px auto}
 
 /* hero panel */
-.panel{background:var(--bg);border-radius:var(--r);margin:12px;padding:64px 0 56px}
+.panel{background:var(--bg);border-radius:var(--r);margin:12px;padding:34px 0 40px}
 .hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
 .kicker{font:600 13px var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.hero h1{font-size:clamp(46px,7.6vw,104px);margin-top:16px;font-weight:800}
-.hero-side p{font-size:19px;color:var(--body);margin-bottom:22px}
-.ticks{list-style:none;display:grid;gap:10px;margin-bottom:26px}
+.hero h1{font-size:clamp(44px,5.4vw,78px);margin-top:10px;font-weight:800}
+.hero-side p{font-size:18px;color:var(--body);margin-bottom:14px}
+.ticks{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:18px}
 .ticks li{display:flex;gap:10px;align-items:center;font-weight:600}
 .tick{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;flex:0 0 24px;font-size:13px}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
 /* category cards */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
-.ccard{position:relative;border-radius:var(--r);overflow:hidden;min-height:440px;color:#fff;padding:30px;
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+/* The three cards are sized to the screen so they are fully visible on
+   arrival (client request): never taller than what is left of the window
+   under the headline, never shorter than 300px. */
+.ccard{position:relative;border-radius:var(--r);overflow:hidden;height:clamp(300px,calc(100vh - 420px),440px);color:#fff;padding:28px;
   display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;transition:transform .2s}
 .ccard:hover{transform:translateY(-3px)}
 .ccard h2{color:#fff;font-size:clamp(28px,2.6vw,36px);max-width:12ch}
@@ -87,7 +90,7 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .c-sema{background:radial-gradient(120% 90% at 85% 100%,#7fe0ae 0%,#2fae76 45%,#0d6b45 100%)}
 .c-tirz{background:radial-gradient(120% 90% at 85% 100%,#9fb2ff 0%,#4f6ff0 45%,#2335b8 100%)}
 .c-life{background:radial-gradient(120% 90% at 80% 100%,#cdb8ff 0%,#8a68f0 45%,#4b2fb5 100%)}
-.ccard .vial{position:absolute;right:6%;bottom:4%;height:74%;width:auto;z-index:1;
+.ccard .vial{position:absolute;right:9%;bottom:5%;height:72%;width:auto;z-index:1;
   filter:drop-shadow(0 24px 26px rgba(0,0,0,.3));transform:rotate(8deg)}
 .ccard .person{position:absolute;right:0;bottom:0;height:100%;width:62%;object-fit:cover;z-index:1;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
@@ -216,7 +219,7 @@ footer a:hover{color:#fff}
   .hero h1{font-size:50px}
   .hero-side p{font-size:17px}
   .cards{grid-template-columns:1fr;margin-top:34px}
-  .ccard{min-height:330px;padding:24px}
+  .ccard{height:auto;min-height:330px;padding:24px}
   .minis{grid-template-columns:1fr}
   .sec{padding:64px 0}
   .plans{grid-template-columns:1fr}
@@ -282,8 +285,7 @@ footer a:hover{color:#fff}
         </div>
         <span class="arrow">&rarr;</span>
         <img class="vial" src="img/vial-sema.webp" alt="Compounded Semaglutide injection vial" width="360" height="962">
-        <div class="sub">Provider-personalized GLP-1 treatment path for eligible patients.
-          <div class="price">Starting at <b>$190</b>/mo</div></div>
+        <div class="sub">Provider-personalized GLP-1 treatment path for eligible patients.</div>
       </a>
       <a class="ccard c-tirz" href="https://smarterchoicemeds.com/weight-loss-intake/">
         <div style="position:relative;z-index:3">
@@ -292,8 +294,7 @@ footer a:hover{color:#fff}
         </div>
         <span class="arrow">&rarr;</span>
         <img class="vial" src="img/vial-tirz.webp" alt="Compounded Tirzepatide injection vial" width="360" height="938">
-        <div class="sub">GLP-1 + GIP treatment path reviewed by a licensed provider.
-          <div class="price">Starting at <b>$239</b>/mo</div></div>
+        <div class="sub">GLP-1 + GIP treatment path reviewed by a licensed provider.</div>
       </a>
       <a class="ccard c-life" href="https://smarterchoicemeds.com/weight-loss-intake/">
         <div style="position:relative;z-index:3">
