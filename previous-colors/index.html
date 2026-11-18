@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smarter Choice Meds | Personalized Online Care</title>
+<meta name="description" content="Personalized treatment options, expert medical guidance, and convenient care from wherever you are.">
+<!-- Design preview only. It stays out of search results until it replaces the live site. -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<!--
+  Smarter Choice Meds, new look and feel (Gala-style layout).
+
+  LegitScript rule passed on by the client, 18 Nov 2026: design changes are fine,
+  but CONTENT and BOTTLE IMAGES must stay exactly as approved. Every sentence,
+  price, disclaimer and image on this page is copied from the approved site
+  (the White Label MD store). Only layout, colour and type are new. Do not add
+  claims, numbers, reviews or product photos here without them being approved.
+-->
+<style>
+:root{
+  --ink:#141a2e; --navy:#232c47; --body:#4a5168; --muted:#7a8095;
+  --blue:#4f80e8; --blue-d:#2f5fd0; --purple:#7b5cf0; --teal:#3cc7a6;
+  --bg:#f6f5f1; --card:#ffffff; --line:#e6e4dc;
+  --h:'Inter Tight',Arial,sans-serif; --b:'DM Sans',Arial,sans-serif;
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--ink);font:400 17px/1.6 var(--b);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1720px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
+.dot{color:var(--blue)}
+h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(--ink)}
+
+/* top bar */
+.topbar{background:linear-gradient(90deg,#3d63e0,#5b7ff0 55%,#7b5cf0);color:#fff;text-align:center;
+  font:600 15px/1.3 var(--b);padding:12px 16px}
+.topbar span{opacity:.92;font-weight:500}
+
+/* nav */
+.nav{position:sticky;top:10px;z-index:50;margin:12px 12px 0}
+.nav-in{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-radius:20px;box-shadow:0 6px 24px -10px rgba(20,26,46,.25);display:flex;align-items:center;
+  gap:20px;padding:12px 14px 12px 24px;max-width:1720px;margin:0 auto}
+.logo img{height:34px;width:auto}
+.links{display:flex;gap:28px;margin-left:auto;font:500 16px var(--b)}
+.links a:hover{color:var(--blue-d)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;
+  font:600 16px var(--b);padding:12px 22px;transition:transform .15s,background .15s}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-d);transform:translateY(-1px)}
+.btn-line{border:1px solid #d6d4cc;background:#fff}
+.btn-line:hover{border-color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+.links .m-only{display:none}
+.menu{display:none;background:none;border:1px solid #d6d4cc;width:44px;height:44px;border-radius:50%;cursor:pointer}
+.menu span{display:block;width:18px;height:2px;background:var(--ink);margin:4px auto}
+
+/* hero panel */
+.panel{background:var(--bg);border-radius:var(--r);margin:12px;padding:34px 0 40px}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:end}
+.kicker{font:600 13px var(--b);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(44px,5.4vw,78px);margin-top:10px;font-weight:800}
+.hero-side p{font-size:18px;color:var(--body);margin-bottom:14px}
+.ticks{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:18px}
+.ticks li{display:flex;gap:10px;align-items:center;font-weight:600}
+.tick{width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;flex:0 0 24px;font-size:13px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* category cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+/* The three cards fill the rest of the first screen exactly (client request,
+   "even with the bottom of the page, like Gala"): the script below sets
+   --card-h to the space left under the headline, so nothing below them peeks
+   in cut off. The clamp() is the fallback if the script does not run. */
+.ccard{position:relative;border-radius:var(--r);overflow:hidden;height:var(--card-h,clamp(300px,calc(100vh - 420px),440px));color:#fff;padding:28px;
+  display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;transition:transform .2s}
+.ccard:hover{transform:translateY(-3px)}
+.ccard h2{color:#fff;font-size:clamp(28px,2.6vw,36px);max-width:12ch}
+.ccard .arrow{position:absolute;top:26px;right:26px;width:46px;height:46px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.6);display:grid;place-items:center;font-size:20px;z-index:3}
+.ccard .sub{font-size:16px;max-width:15ch;position:relative;z-index:3;font-weight:500}
+.ccard .price{font:800 15px var(--b);letter-spacing:.02em;margin-top:8px;opacity:.95}
+.ccard .price b{font:800 34px var(--h);letter-spacing:-.03em}
+.c-sema{background:radial-gradient(120% 90% at 85% 100%,#7fe0ae 0%,#2fae76 45%,#0d6b45 100%)}
+.c-tirz{background:radial-gradient(120% 90% at 85% 100%,#9fb2ff 0%,#4f6ff0 45%,#2335b8 100%)}
+.c-life{background:radial-gradient(120% 90% at 80% 100%,#cdb8ff 0%,#8a68f0 45%,#4b2fb5 100%)}
+.ccard .vial{position:absolute;right:9%;bottom:5%;height:min(72%,420px);width:auto;z-index:1;
+  filter:drop-shadow(0 24px 26px rgba(0,0,0,.3));transform:rotate(8deg)}
+.ccard .person{position:absolute;right:0;bottom:0;height:100%;width:62%;object-fit:cover;z-index:1;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
+.tag{display:inline-block;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);border-radius:999px;
+  font:700 12px var(--b);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;margin-bottom:14px}
+
+.minis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.mini{border-radius:20px;padding:20px 22px;display:flex;gap:14px;align-items:center;color:#fff}
+.mini .ico{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:0 0 46px}
+.mini b{display:block;font:700 19px/1.15 var(--h);letter-spacing:-.02em}
+.mini span{font-size:14px;opacity:.85}
+.m1{background:linear-gradient(120deg,#2f4fd8,#6f8cf6)}
+.m2{background:linear-gradient(120deg,#0f7a4f,#3fbf86)}
+.m3{background:linear-gradient(120deg,#1b1f2e,#4a4f63)}
+.m4{background:linear-gradient(120deg,#e9d7a8,#f3e7c6);color:var(--ink)}
+.m4 .ico{background:rgba(20,26,46,.08)}
+.fine{font-size:13px;color:var(--muted);text-align:center;margin-top:26px}
+
+/* sections */
+.sec{padding:96px 0}
+.sec-title{text-align:center;max-width:860px;margin:0 auto 18px;font-size:clamp(34px,5vw,62px);font-weight:800}
+.sec-sub{text-align:center;color:var(--body);max-width:640px;margin:0 auto 44px;font-size:18px}
+
+/* plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1400px;margin:0 auto}
+.plan{border-radius:var(--r);overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
+.plan-art{position:relative;height:300px;display:grid;place-items:center}
+.plan-art img{height:270px;width:auto;filter:drop-shadow(0 22px 22px rgba(0,0,0,.22));transform:rotate(-8deg)}
+.pa-sema{background:#c9efd9}
+.pa-tirz{background:#d5ddff}
+.plan-art .tags{position:absolute;top:18px;left:18px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.pill{background:rgba(20,26,46,.72);color:#fff;font:700 12px var(--b);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.pill.pop{background:var(--blue)}
+.plan-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+.plan-body h3{font-size:30px;margin-bottom:8px}
+.plan-body p{color:var(--body);margin-bottom:16px}
+.from{font-size:14px;color:var(--muted);font-weight:600}
+.from b{font:800 46px/1 var(--h);color:var(--ink);letter-spacing:-.04em}
+.from i{font-style:normal;font-weight:600;color:var(--body)}
+.incl{font-size:14px;font-weight:700;color:var(--blue-d);margin:6px 0 14px}
+.feat{list-style:none;display:grid;gap:8px;margin-bottom:24px}
+.feat li{display:flex;gap:10px;align-items:center;font-weight:500}
+.plan-body .btn{margin-top:auto}
+.notes{max-width:1400px;margin:20px auto 0;border:1px solid var(--line);border-radius:20px;padding:20px 24px;font-size:15px;color:var(--body)}
+.notes b{color:var(--ink)}
+
+/* program (big checklist card) */
+.prog{border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;color:#fff;
+  background:radial-gradient(130% 120% at 100% 100%,#9a80ff 0%,#5a3fd8 40%,#2a1f7a 100%);margin-bottom:20px}
+.prog-txt{padding:56px 52px}
+.prog h2{color:#fff;font-size:clamp(34px,4vw,54px);margin:14px 0 18px}
+.prog p{opacity:.9;margin-bottom:24px;max-width:46ch}
+.checks{list-style:none;display:grid;gap:16px;margin-bottom:30px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks .tick{background:#fff;color:#4b2fb5;margin-top:3px}
+.checks b{display:block;font-weight:700}
+.checks span{opacity:.85;font-size:15px}
+.prog-img{position:relative;min-height:420px}
+.prog-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prog .fine2{font-size:12.5px;opacity:.75;margin-top:22px;max-width:60ch}
+.p-green{background:radial-gradient(130% 120% at 100% 100%,#86e3b5 0%,#24a26a 40%,#0b5a3a 100%)}
+.p-green .checks .tick{color:#0d6b45}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{background:var(--bg);border-radius:var(--r);overflow:hidden}
+.step img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.step-body{padding:24px 26px 28px}
+.step-n{font:800 15px var(--h);color:var(--blue-d);letter-spacing:.06em}
+.step h3{font-size:24px;margin:8px 0 10px;letter-spacing:-.02em;line-height:1.15}
+.step p{color:var(--body);font-size:16px}
+
+/* faq */
+.faq{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:var(--bg);border-radius:20px;padding:4px 26px}
+.faq summary{list-style:none;cursor:pointer;font:700 19px/1.3 var(--h);letter-spacing:-.01em;padding:20px 30px 20px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:0;top:16px;font:400 28px var(--b);color:var(--muted)}
+.faq details[open] summary::after{content:'–'}
+.faq .ans{padding:0 0 22px;color:var(--body)}
+.faq .ans p+p{margin-top:10px}
+
+/* final cta */
+.final{border-radius:var(--r);overflow:hidden;position:relative;color:#fff;min-height:420px;display:flex;align-items:flex-end}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final::before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,18,34,.82),rgba(15,18,34,.15) 70%);z-index:1}
+.final-in{position:relative;z-index:2;padding:52px}
+.final h2{color:#fff;font-size:clamp(36px,5vw,64px);margin-bottom:16px;max-width:16ch}
+.final p{max-width:56ch;opacity:.92;margin-bottom:24px}
+
+/* footer */
+footer{background:var(--ink);color:#c9ccd8;margin:12px;border-radius:var(--r);padding:56px 0 30px}
+.f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.f-logo{background:#fff;border-radius:14px;padding:12px 16px;display:inline-block;margin-bottom:16px}
+.f-logo img{height:28px;width:auto}
+footer h4{color:#fff;font:700 16px var(--h);margin-bottom:12px}
+footer ul{list-style:none;display:grid;gap:8px;font-size:15px}
+footer a:hover{color:#fff}
+.f-legal{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:12.5px;line-height:1.6;display:grid;gap:12px;color:#9aa0b4}
+
+/* responsive */
+/* Short laptop screens: tighter top so the cards still get a useful height. */
+@media (max-height:780px) and (min-width:1061px){
+  .topbar{padding:8px 16px}
+  .panel{padding:20px 0 28px}
+  .hero h1{font-size:clamp(40px,4.4vw,62px);margin-top:6px}
+  .hero-side p{font-size:16px;margin-bottom:10px}
+  .ticks{margin-bottom:12px}
+  .cards{margin-top:20px}
+}
+@media (max-width:1060px){
+  .links{display:none}
+  .menu{display:block;margin-left:auto}
+  .links.open{display:flex;position:absolute;left:0;right:0;top:calc(100% + 8px);flex-direction:column;gap:0;
+    background:#fff;border-radius:20px;box-shadow:0 10px 30px -10px rgba(20,26,46,.3);padding:10px 22px}
+  .links.open a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .hero{grid-template-columns:1fr;gap:26px}
+  .cards{grid-template-columns:1fr 1fr}
+  .c-life{grid-column:1/-1}
+  .minis{grid-template-columns:1fr 1fr}
+  .prog{grid-template-columns:1fr}
+  .prog-img{min-height:320px;order:-1}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .nav{margin:8px 8px 0;top:6px}
+  .nav-in{padding:10px 10px 10px 16px;gap:10px}
+  .logo img{height:24px}
+  .nav .btn-blue{padding:10px 14px;font-size:14px}
+  #login{display:none}
+  .links .m-only{display:block}
+  .ccard .vial{height:230px;right:16px;bottom:20px}
+  .panel{margin:8px;padding:40px 0 36px}
+  .hero h1{font-size:50px}
+  .hero-side p{font-size:17px}
+  .cards{grid-template-columns:1fr;margin-top:34px}
+  .ccard{height:auto;min-height:330px;padding:24px}
+  .minis{grid-template-columns:1fr}
+  .sec{padding:64px 0}
+  .plans{grid-template-columns:1fr}
+  .plan-art{height:240px}
+  .plan-art img{height:215px}
+  .prog-txt{padding:36px 24px}
+  .steps{grid-template-columns:1fr}
+  .final-in{padding:30px 24px}
+  .f-top{grid-template-columns:1fr 1fr}
+  .f-top>div:first-child{grid-column:1/-1}
+  footer{margin:8px}
+}
+/* Gala-style moving chips inside the product cards (approved wording only). */
+.chips{position:absolute;left:0;right:0;top:52%;overflow:hidden;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.chips-track{display:flex;gap:10px;width:max-content;animation:chips 26s linear infinite}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:14px 18px;
+  font:600 14px var(--b);white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes chips{to{transform:translateX(-50%)}}
+.ccard .sub{background:none}
+
+/* Floating product chips over the doctor photo, like Gala's medication chips. */
+.float-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:18px;padding:10px 16px 10px 10px;
+  color:var(--ink);font:700 15px var(--b);box-shadow:0 14px 30px -12px rgba(20,26,46,.45);animation:bob 5s ease-in-out infinite}
+.float-chip img{position:static!important;width:auto!important;height:54px!important;object-fit:contain!important}
+.fc1{left:7%;top:16%}
+.fc2{right:7%;bottom:14%;animation-delay:-2.5s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+.ls-link{color:#fff;text-decoration:underline;font-weight:600}
+
+/* Phones: a "Start my program" bar once the visitor scrolls past the top. */
+.sticky-cta{display:none}
+@media (max-width:680px){
+  .sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;text-align:center;
+    background:var(--blue);color:#fff;font:700 17px var(--b);padding:16px;border-radius:999px;
+    box-shadow:0 12px 30px -10px rgba(47,95,208,.6);transform:translateY(140%);transition:transform .25s}
+  .sticky-cta.show{transform:none}
+  .chips{display:none}
+  footer{padding-bottom:90px}
+  .float-chip{font-size:13px;padding:8px 12px 8px 8px}
+  .float-chip img{height:40px!important}
+}
+
+/* Sections rise in gently as they come into view. */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .chips-track,.float-chip{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">Personalized online care <span>&middot; Private online intake &middot; Licensed provider review &middot; Ongoing care support</span></div>
+
+<nav class="nav">
+  <div class="nav-in" style="position:relative">
+    <a class="logo" href="#top" aria-label="Smarter Choice Meds home"><img src="../img/logo.webp" alt="Smarter Choice Meds" width="760" height="100"></a>
+    <div class="links" id="links">
+      <a href="#plans">Weight loss</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://smarterchoicemeds.com/about/">About us</a>
+      <a href="https://smarterchoicemeds.com/contact-us/">Contact us</a>
+      <a class="m-only" href="https://member.smarterchoicemeds.com/" target="_blank" rel="noopener">Log in</a>
+    </div>
+    <a class="btn btn-line" href="https://member.smarterchoicemeds.com/" target="_blank" rel="noopener" id="login">Log in</a>
+    <a class="btn btn-blue" href="https://smarterchoicemeds.com/weight-loss-intake/">Start my program</a>
+    <button class="menu" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main id="top">
+
+<section class="panel">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="kicker">Personalized online care</div>
+        <h1>A smarter way to feel your best<span class="dot">.</span></h1>
+      </div>
+      <div class="hero-side">
+        <p>Personalized treatment options, expert medical guidance, and convenient care from wherever you are.</p>
+        <ul class="ticks">
+          <li><span class="tick">&#10003;</span>Private online intake</li>
+          <li><span class="tick">&#10003;</span>Licensed provider review</li>
+          <li><span class="tick">&#10003;</span>Ongoing care support</li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-blue" href="#plans">Explore treatments</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="ccard c-sema" href="https://smarterchoicemeds.com/weight-loss-intake/">
+        <div style="position:relative;z-index:3">
+          <span class="tag">GLP-1</span>
+          <h2>Compounded Semaglutide</h2>
+        </div>
+        <span class="arrow">&rarr;</span>
+        <div class="chips" aria-hidden="true"><div class="chips-track"><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span></div></div>
+        <img class="vial" src="../img/vial-sema.webp" alt="Compounded Semaglutide injection vial" width="360" height="962">
+        <div class="sub">Provider-personalized GLP-1 treatment path for eligible patients.</div>
+      </a>
+      <a class="ccard c-tirz" href="https://smarterchoicemeds.com/weight-loss-intake/">
+        <div style="position:relative;z-index:3">
+          <span class="tag">Most popular</span>
+          <h2>Compounded Tirzepatide</h2>
+        </div>
+        <span class="arrow">&rarr;</span>
+        <div class="chips" aria-hidden="true"><div class="chips-track"><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span></div></div>
+        <img class="vial" src="../img/vial-tirz.webp" alt="Compounded Tirzepatide injection vial" width="360" height="938">
+        <div class="sub">GLP-1 + GIP treatment path reviewed by a licensed provider.</div>
+      </a>
+      <a class="ccard c-life" href="https://smarterchoicemeds.com/weight-loss-intake/">
+        <div style="position:relative;z-index:3">
+          <span class="tag">Doctor-led online care</span>
+          <h2>Weight care, structured for clarity.</h2>
+        </div>
+        <span class="arrow">&rarr;</span>
+        <img class="person" src="../img/woman.webp" alt="" width="700" height="1049">
+        <div class="sub">See if you qualify</div>
+      </a>
+    </div>
+
+    <div class="minis">
+      <a class="mini m1" href="https://smarterchoicemeds.com/weight-loss-intake/">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+        <div><b>Start in minutes</b><span>Take the health questionnaire</span></div></a>
+      <div class="mini m2">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3l8 3.5v5c0 5-3.4 8.6-8 9.5-4.6-.9-8-4.5-8-9.5v-5z"/><path d="M8.5 12l2.4 2.4L15.8 9.5"/></svg></span>
+        <div><b>Licensed providers</b><span>Review when appropriate</span></div></div>
+      <div class="mini m3">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span>
+        <div><b>Convenient online care</b><span>Start privately from home</span></div></div>
+      <div class="mini m4">
+        <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141a2e" stroke-width="2"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+        <div><b>Transparent monthly pricing</b><span>Clear program costs</span></div></div>
+    </div>
+    <p class="fine">*Prescription treatment is provided only when determined clinically appropriate by a licensed medical provider.</p>
+  </div>
+</section>
+
+<!-- ============================================================ plans -->
+<section class="sec" id="plans">
+  <div class="wrap">
+    <div class="kicker" style="text-align:center;margin-bottom:14px">Weight loss programs</div>
+    <h2 class="sec-title">Simple GLP-1 pricing, organized by plan<span class="dot">.</span></h2>
+    <p class="sec-sub">Clear program costs with no hidden membership fees.</p>
+
+    <div class="plans">
+      <article class="plan">
+        <div class="plan-art pa-sema">
+          <div class="tags"><span class="pill">GLP-1</span></div>
+          <img src="../img/vial-sema.webp" alt="Compounded Semaglutide injection vial" width="360" height="962" loading="lazy">
+        </div>
+        <div class="plan-body">
+          <h3>Compounded Semaglutide</h3>
+          <p>Provider-personalized GLP-1 treatment path for eligible patients.</p>
+          <div class="from">Starting at <b>$190</b><i>/mo</i></div>
+          <div class="incl">Provider review included</div>
+          <ul class="feat">
+            <li><span class="tick">&#10003;</span>Provider review</li>
+            <li><span class="tick">&#10003;</span>Medication when prescribed</li>
+            <li><span class="tick">&#10003;</span>Ongoing support</li>
+          </ul>
+          <a class="btn btn-dark" href="https://smarterchoicemeds.com/weight-loss-intake/">Start my program</a>
+        </div>
+      </article>
+      <article class="plan">
+        <div class="plan-art pa-tirz">
+          <div class="tags"><span class="pill">GLP-1 + GIP</span><span class="pill pop">Most popular</span></div>
+          <img src="../img/vial-tirz.webp" alt="Compounded Tirzepatide injection vial" width="360" height="938" loading="lazy">
+        </div>
+        <div class="plan-body">
+          <h3>Compounded Tirzepatide</h3>
+          <p>GLP-1 + GIP treatment path reviewed by a licensed provider.</p>
+          <div class="from">Starting at <b>$239</b><i>/mo</i></div>
+          <div class="incl">Provider review included</div>
+          <ul class="feat">
+            <li><span class="tick">&#10003;</span>Provider review</li>
+            <li><span class="tick">&#10003;</span>Medication when prescribed</li>
+            <li><span class="tick">&#10003;</span>Ongoing support</li>
+          </ul>
+          <a class="btn btn-blue" href="https://smarterchoicemeds.com/weight-loss-intake/">Start my program</a>
+        </div>
+      </article>
+    </div>
+    <div class="notes"><b>Important notes</b><br>
+      Prescription products require an online consultation with a healthcare professional who will determine if a prescription is appropriate.
+      Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, effectiveness, or quality.</div>
+  </div>
+</section>
+
+<!-- ======================================================= program cards -->
+<section class="wrap">
+  <div class="prog">
+    <div class="prog-txt">
+      <div class="kicker" style="color:rgba(255,255,255,.75)">Doctor-led online care</div>
+      <h2>Weight care, structured for clarity.</h2>
+      <p>Get a personalized plan reviewed by a licensed healthcare provider, with clear monthly pricing and ongoing support from home. When medication is appropriate, your provider determines the treatment and dose.</p>
+      <ul class="checks">
+        <li><span class="tick">&#10003;</span><div><b>Personalized treatment plan</b><span>Reviewed by a licensed healthcare provider and tailored to your clinical needs.</span></div></li>
+        <li><span class="tick">&#10003;</span><div><b>Care coordinated online</b><span>Online consultation, medication when prescribed, shipping, and ongoing support.</span></div></li>
+        <li><span class="tick">&#10003;</span><div><b>Transparent monthly pricing</b><span>Clear program costs with no hidden membership fees.</span></div></li>
+      </ul>
+      <a class="btn btn-white" href="https://smarterchoicemeds.com/weight-loss-intake/">See if you qualify</a>
+      <p class="fine2">Prescription products require an online consultation with a healthcare professional who will determine whether a prescription is appropriate. Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, effectiveness, or quality.</p>
+    </div>
+    <div class="prog-img"><img src="../img/doctor.webp" alt="Smiling doctor waving during a telehealth consultation" width="1200" height="801" loading="lazy">
+      <a class="float-chip fc1" href="#plans"><img src="../img/vial-sema.webp" alt="" width="360" height="962"><span>Compounded Semaglutide</span></a>
+      <a class="float-chip fc2" href="#plans"><img src="../img/vial-tirz.webp" alt="" width="360" height="938"><span>Compounded Tirzepatide</span></a>
+    </div>
+  </div>
+
+  <div class="prog p-green">
+    <div class="prog-txt">
+      <div class="kicker" style="color:rgba(255,255,255,.75)">Online weight care &middot; Personalized treatment</div>
+      <h2>Your Treatment, Your Plan</h2>
+      <p>At Smarter Choice Meds, treatment plans are developed based on your individual needs and clinical evaluation. A licensed healthcare provider will review your information and, when appropriate, recommend a treatment option that may include prescription medication. Your plan can be adjusted over time based on your response, goals, and provider guidance.</p>
+      <a class="btn btn-white" href="https://smarterchoicemeds.com/weight-loss-intake/">Start My GLP-1 Program</a>
+    </div>
+    <div class="prog-img"><img src="../img/couple.webp" alt="Couple stretching on a path in the park" width="1200" height="800" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ============================================================ how -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="kicker" style="text-align:center;margin-bottom:14px">Start in minutes</div>
+    <h2 class="sec-title">Your care journey, simplified<span class="dot">.</span></h2>
+    <p class="sec-sub">Complete a private online intake, connect with a licensed provider, and receive treatment if it is clinically appropriate.</p>
+    <div class="steps">
+      <div class="step"><img src="../img/phone.webp" alt="Adult using a phone in a park" width="900" height="474" loading="lazy">
+        <div class="step-body"><div class="step-n">01</div><h3>Take the health questionnaire</h3>
+        <p>A confidential online intake helps your provider understand your goals, history, and eligibility.</p></div></div>
+      <div class="step"><img src="../img/doctor.webp" alt="Doctor during a telehealth consultation" width="1200" height="801" loading="lazy">
+        <div class="step-body"><div class="step-n">02</div><h3>A provider reviews your visit</h3>
+        <p>If appropriate, your provider determines treatment. Based on your state, a synchronous online visit may be required.</p></div></div>
+      <div class="step"><img src="../img/package.webp" alt="Person receiving a package at the front door" width="900" height="600" loading="lazy">
+        <div class="step-body"><div class="step-n">03</div><h3>Medication ships to your door</h3>
+        <p>When prescribed, medication is delivered with support resources and clear next steps.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ faq -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="sec-title">Frequently asked questions<span class="dot">.</span></h2>
+    <div class="faq" style="margin-top:36px">
+      <details open><summary>What Are GLP-1 medications?</summary><div class="ans">
+        <p>GLP-1 medications are a class of prescription drugs that not only improves blood sugar control but may also lead to weight loss. This class of drugs is commonly called glucagon-like peptide 1 (GLP-1) agonists. Weight loss can vary, depending on which GLP-1 drug you use and the dosage.</p>
+        <p>Some of the more common side effects include:<br>Nausea, Vomiting, Diarrhea.</p>
+        <p>Side effects can often be mitigated by correctly titrating your dosage upward, so you’ll want to ensure that you are taking the medication exactly as prescribed by your provider to minimize risk and/or severity of side effects. Anti-nausea medications such as ondansetron (generic Zofran) are also helpful to assist in mitigating nausea.</p>
+        <p>Low blood sugar levels (hypoglycemia) are a more serious risk linked to the GLP-1 class of drugs. But the risk of low blood sugar levels often only goes up if you’re also taking another drug known to lower blood sugar at the same time, such as sulfonylureas or insulin. The GLP-1 class of drugs isn’t recommended if you have a personal or family history of medullary thyroid cancer or multiple endocrine neoplasia. Lab studies have linked these drugs with thyroid tumors in rats. But until more long-term studies are done, the risk to humans isn’t known. The GLP-1 class of drugs is also not recommended if you’ve had pancreatitis.</p></div></details>
+      <details><summary>How to take GLP-1 medication?</summary><div class="ans">
+        <p>It is important to follow the prescribed doses and directions from your provider accurately in order to minimize risk and/or severity of potential side effects. If you have any questions regarding how to properly take your medication once you receive it, please reach out to us before taking for proper guidance from a licensed medication professional. Taking doses other than what is prescribed by your provider may have unintended and potentially dangerous side effects.</p></div></details>
+      <details><summary>What should I do if I miss a dosage?</summary><div class="ans">
+        <p>If you miss a dosage on your day of the week, please reach out to us before continuing your dosage. You may need to lessen your dosage for your next dose in order to minimize risk and/or severity of potential side effects.</p></div></details>
+      <details><summary>How should I store GLP-1 medications?</summary><div class="ans">
+        <p>These medications should be stored in the refrigerator between doses. GLP-1 medications are sensitive to temperature and could degrade if not stored properly.</p></div></details>
+      <details><summary>When should I take my dose of GLP-1 medication?</summary><div class="ans">
+        <p>You can take GLP-1 medications at any time during the day, without regard to meals. If your dosage is prescribed to take weekly, you should take your dose on the same day each week.</p></div></details>
+      <details><summary>Can I take a dosage that I've already been on if I'm switching to you from another doctor?</summary><div class="ans">
+        <p>Please discuss your previous prescription and dosage with your provider during your medical intake process when enrolling and if medically appropriate, your provider will coordinate your dosage accordingly.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="margin-bottom:12px">
+  <div class="final">
+    <img src="../img/jog.webp" alt="Couple enjoying a morning jog in the city" width="1200" height="801" loading="lazy">
+    <div class="final-in">
+      <h2>Take control of your weight-loss journey with Smarter Choice Meds.</h2>
+      <p>Complete a private online intake, connect with a licensed provider, and receive treatment if it is clinically appropriate.</p>
+      <a class="btn btn-blue" href="https://smarterchoicemeds.com/weight-loss-intake/">Start My GLP-1 Program</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <span class="f-logo"><img src="../img/logo.webp" alt="Smarter Choice Meds" width="760" height="100"></span>
+        <p style="max-width:40ch">Take control of your weight-loss journey with Smarter Choice Meds.</p>
+      </div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="https://smarterchoicemeds.com/hipaa/">HIPAA Notice</a></li>
+        <li><a href="https://smarterchoicemeds.com/privacy/">Privacy Policy</a></li>
+        <li><a href="https://smarterchoicemeds.com/returns-refund-policy/">Returns &amp; Refund Policy</a></li>
+        <li><a href="https://smarterchoicemeds.com/terms/">Terms Of Use</a></li>
+        <li><a href="https://smarterchoicemeds.com/ccpa/">CCPA Opt-Out</a></li>
+        <li><a href="https://smarterchoicemeds.com/sms-terms-and-conditions/">SMS Terms and Conditions</a></li></ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="https://smarterchoicemeds.com/about/">About</a></li>
+        <li><a href="https://smarterchoicemeds.com/contact-us/">Contact</a></li>
+        <li><a href="https://smarterchoicemeds.com/faq/">FAQs</a></li></ul></div>
+    </div>
+    <div class="f-legal">
+      <p>Medications only issued when clinically appropriate after provider evaluation.</p>
+      <p>Smarter Choice Meds does not manufacture compounded medications. Actual product appearance and labeling of the medication you receive will differ from website images.</p>
+      <p>Smarter Choice Meds operates as a marketplace platform that connects patients with independently licensed healthcare providers who deliver medical care through the Smarter Choice Meds Patient Portal. Smarter Choice Meds does not directly dispense medication or provide medical services; all clinical decisions are solely made by independent providers. Payment does not guarantee that a prescription will be issued or that medication will be dispensed. Any prescriptions provided are based solely on the professional judgment of the healthcare provider.</p>
+      <p>The information on this website is for general informational purposes only and is not intended as a substitute for personalized medical advice, diagnosis, or treatment. Always consult your licensed healthcare provider regarding any medical concerns. This platform serves as an advertisement for healthcare services, not for any specific prescription medications.</p>
+      <p>Disclaimer: FDA-approved brand-name medications, including Wegovy® and Ozempic®, are exclusively manufactured and distributed by Novo Nordisk®. Mounjaro® and Zepbound® are exclusively manufactured and distributed by Eli Lilly and Company®. Smarter Choice Meds is not affiliated with, endorsed by, or sponsored by any of these companies or their products.</p>
+      <p>Please note that compounded medications are not reviewed or approved by the U.S. Food and Drug Administration (FDA) for safety or efficacy. However, they are prepared by licensed compounding pharmacies in compliance with Section 503A of the Federal Food, Drug, and Cosmetic Act, which allows for compounding of medications based on a valid patient-specific prescription from a licensed healthcare provider.</p>
+      <p><a class="ls-link" href="https://www.legitscript.com/websites/smarterchoicemeds.com/" target="_blank" rel="noopener">LegitScript-certified website &middot; verify certification</a></p>
+      <p>Copyright © 2026 Smarter Choice Meds LLC. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="sticky-cta" id="stickyCta" href="https://smarterchoicemeds.com/weight-loss-intake/">Start my program</a>
+
+<script>
+/* Size the hero cards to end at the bottom of the window (desktop only;
+   on phones they stack and keep their own height). */
+(function(){
+  var cards = document.querySelector('.cards');
+  function fit(){
+    if (window.innerWidth <= 1060) { document.documentElement.style.removeProperty('--card-h'); return; }
+    var top = cards.getBoundingClientRect().top + window.scrollY;
+    var h = Math.round(window.innerHeight - top - 16);
+    document.documentElement.style.setProperty('--card-h', Math.max(280, Math.min(h, 760)) + 'px');
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+
+/* Mobile sticky button: hidden on the first screen, shown after it. */
+(function(){
+  var b = document.getElementById('stickyCta');
+  function on(){ b.classList.toggle('show', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', on, {passive: true}); on();
+})();
+
+/* Reveal sections on scroll. Without IntersectionObserver everything simply shows. */
+(function(){
+  var els = document.querySelectorAll('.plan, .prog, .step, .faq details, .final, .notes, .minis .mini');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  els.forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+})();
+
+/* Close the phone menu after a link in it is tapped. */
+document.querySelectorAll('#links a').forEach(function(a){
+  a.addEventListener('click', function(){ document.getElementById('links').classList.remove('open'); });
+});
+</script>
+</body>
+</html>

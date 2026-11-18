@@ -23,8 +23,8 @@
 <style>
 :root{
   --ink:#141a2e; --navy:#232c47; --body:#4a5168; --muted:#7a8095;
-  --blue:#4f80e8; --blue-d:#2f5fd0; --purple:#7b5cf0; --teal:#3cc7a6;
-  --bg:#f6f5f1; --card:#ffffff; --line:#e6e4dc;
+  --blue:#1d2a52; --blue-d:#0f1836; --accent:#17b3a0; --accent-d:#0e8f80; --purple:#7b5cf0; --teal:#2fc4ae;
+  --bg:#eef4f5; --card:#ffffff; --line:#dbe6e8;
   --h:'Inter Tight',Arial,sans-serif; --b:'DM Sans',Arial,sans-serif;
   --r:28px;
 }
@@ -34,11 +34,11 @@ body{background:#fff;color:var(--ink);font:400 17px/1.6 var(--b);-webkit-font-sm
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1720px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
-.dot{color:var(--blue)}
+.dot{color:var(--accent)}
 h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(--ink)}
 
 /* top bar */
-.topbar{background:linear-gradient(90deg,#3d63e0,#5b7ff0 55%,#7b5cf0);color:#fff;text-align:center;
+.topbar{background:linear-gradient(90deg,#1d2a52,#24386e 55%,#17807a);color:#fff;text-align:center;
   font:600 15px/1.3 var(--b);padding:12px 16px}
 .topbar span{opacity:.92;font-weight:500}
 
@@ -49,11 +49,13 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
   gap:20px;padding:12px 14px 12px 24px;max-width:1720px;margin:0 auto}
 .logo img{height:34px;width:auto}
 .links{display:flex;gap:28px;margin-left:auto;font:500 16px var(--b)}
-.links a:hover{color:var(--blue-d)}
+.links a:hover{color:var(--accent-d)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;
   font:600 16px var(--b);padding:12px 22px;transition:transform .15s,background .15s}
 .btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:var(--blue-d);transform:translateY(-1px)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-d);transform:translateY(-1px)}
+.btn-blue:hover{background:var(--accent-d);transform:translateY(-1px)}
 .btn-line{border:1px solid #d6d4cc;background:#fff}
 .btn-line:hover{border-color:var(--ink)}
 .btn-dark{background:var(--ink);color:#fff}
@@ -88,9 +90,9 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .ccard .sub{font-size:16px;max-width:15ch;position:relative;z-index:3;font-weight:500}
 .ccard .price{font:800 15px var(--b);letter-spacing:.02em;margin-top:8px;opacity:.95}
 .ccard .price b{font:800 34px var(--h);letter-spacing:-.03em}
-.c-sema{background:radial-gradient(120% 90% at 85% 100%,#7fe0ae 0%,#2fae76 45%,#0d6b45 100%)}
-.c-tirz{background:radial-gradient(120% 90% at 85% 100%,#9fb2ff 0%,#4f6ff0 45%,#2335b8 100%)}
-.c-life{background:radial-gradient(120% 90% at 80% 100%,#cdb8ff 0%,#8a68f0 45%,#4b2fb5 100%)}
+.c-sema{background:radial-gradient(120% 90% at 85% 100%,#8ff0dc 0%,#1fb39c 45%,#0b5b5a 100%)}
+.c-tirz{background:radial-gradient(120% 90% at 85% 100%,#9ec2ff 0%,#3b6fd8 45%,#1a2756 100%)}
+.c-life{background:radial-gradient(120% 90% at 80% 100%,#e2d6ff 0%,#9a82ee 45%,#45358f 100%)}
 .ccard .vial{position:absolute;right:9%;bottom:5%;height:min(72%,420px);width:auto;z-index:1;
   filter:drop-shadow(0 24px 26px rgba(0,0,0,.3));transform:rotate(8deg)}
 .ccard .person{position:absolute;right:0;bottom:0;height:100%;width:62%;object-fit:cover;z-index:1;
@@ -103,10 +105,10 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .mini .ico{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex:0 0 46px}
 .mini b{display:block;font:700 19px/1.15 var(--h);letter-spacing:-.02em}
 .mini span{font-size:14px;opacity:.85}
-.m1{background:linear-gradient(120deg,#2f4fd8,#6f8cf6)}
-.m2{background:linear-gradient(120deg,#0f7a4f,#3fbf86)}
-.m3{background:linear-gradient(120deg,#1b1f2e,#4a4f63)}
-.m4{background:linear-gradient(120deg,#e9d7a8,#f3e7c6);color:var(--ink)}
+.m1{background:linear-gradient(120deg,#1d2a52,#3a5196)}
+.m2{background:linear-gradient(120deg,#0e8f80,#3fd0b8)}
+.m3{background:linear-gradient(120deg,#5b46b8,#8e78ea)}
+.m4{background:linear-gradient(120deg,#d7f3ee,#eaf8f5);color:var(--ink)}
 .m4 .ico{background:rgba(20,26,46,.08)}
 .fine{font-size:13px;color:var(--muted);text-align:center;margin-top:26px}
 
@@ -120,18 +122,18 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .plan{border-radius:var(--r);overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
 .plan-art{position:relative;height:300px;display:grid;place-items:center}
 .plan-art img{height:270px;width:auto;filter:drop-shadow(0 22px 22px rgba(0,0,0,.22));transform:rotate(-8deg)}
-.pa-sema{background:#c9efd9}
-.pa-tirz{background:#d5ddff}
+.pa-sema{background:#cdeee8}
+.pa-tirz{background:#dbe4fb}
 .plan-art .tags{position:absolute;top:18px;left:18px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .pill{background:rgba(20,26,46,.72);color:#fff;font:700 12px var(--b);letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
-.pill.pop{background:var(--blue)}
+.pill.pop{background:var(--accent)}
 .plan-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
 .plan-body h3{font-size:30px;margin-bottom:8px}
 .plan-body p{color:var(--body);margin-bottom:16px}
 .from{font-size:14px;color:var(--muted);font-weight:600}
 .from b{font:800 46px/1 var(--h);color:var(--ink);letter-spacing:-.04em}
 .from i{font-style:normal;font-weight:600;color:var(--body)}
-.incl{font-size:14px;font-weight:700;color:var(--blue-d);margin:6px 0 14px}
+.incl{font-size:14px;font-weight:700;color:var(--accent-d);margin:6px 0 14px}
 .feat{list-style:none;display:grid;gap:8px;margin-bottom:24px}
 .feat li{display:flex;gap:10px;align-items:center;font-weight:500}
 .plan-body .btn{margin-top:auto}
@@ -140,27 +142,27 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 
 /* program (big checklist card) */
 .prog{border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:1.1fr 1fr;color:#fff;
-  background:radial-gradient(130% 120% at 100% 100%,#9a80ff 0%,#5a3fd8 40%,#2a1f7a 100%);margin-bottom:20px}
+  background:radial-gradient(130% 120% at 100% 100%,#5f8be8 0%,#2a3f86 40%,#141d3d 100%);margin-bottom:20px}
 .prog-txt{padding:56px 52px}
 .prog h2{color:#fff;font-size:clamp(34px,4vw,54px);margin:14px 0 18px}
 .prog p{opacity:.9;margin-bottom:24px;max-width:46ch}
 .checks{list-style:none;display:grid;gap:16px;margin-bottom:30px}
 .checks li{display:flex;gap:12px;align-items:flex-start}
-.checks .tick{background:#fff;color:#4b2fb5;margin-top:3px}
+.checks .tick{background:var(--teal);color:#fff;margin-top:3px}
 .checks b{display:block;font-weight:700}
 .checks span{opacity:.85;font-size:15px}
 .prog-img{position:relative;min-height:420px}
 .prog-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .prog .fine2{font-size:12.5px;opacity:.75;margin-top:22px;max-width:60ch}
-.p-green{background:radial-gradient(130% 120% at 100% 100%,#86e3b5 0%,#24a26a 40%,#0b5a3a 100%)}
-.p-green .checks .tick{color:#0d6b45}
+.p-green{background:radial-gradient(130% 120% at 100% 100%,#8ff0dc 0%,#16a493 40%,#0a4c4b 100%)}
+.p-green .checks .tick{background:#fff;color:#0e8f80}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .step{background:var(--bg);border-radius:var(--r);overflow:hidden}
 .step img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .step-body{padding:24px 26px 28px}
-.step-n{font:800 15px var(--h);color:var(--blue-d);letter-spacing:.06em}
+.step-n{font:800 15px var(--h);color:var(--accent-d);letter-spacing:.06em}
 .step h3{font-size:24px;margin:8px 0 10px;letter-spacing:-.02em;line-height:1.15}
 .step p{color:var(--body);font-size:16px}
 
@@ -266,7 +268,7 @@ footer a:hover{color:#fff}
 .sticky-cta{display:none}
 @media (max-width:680px){
   .sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;text-align:center;
-    background:var(--blue);color:#fff;font:700 17px var(--b);padding:16px;border-radius:999px;
+    background:var(--accent);color:#fff;font:700 17px var(--b);padding:16px;border-radius:999px;
     box-shadow:0 12px 30px -10px rgba(47,95,208,.6);transform:translateY(140%);transition:transform .25s}
   .sticky-cta.show{transform:none}
   .chips{display:none}
@@ -282,6 +284,10 @@ footer a:hover{color:#fff}
   .chips-track,.float-chip{animation:none}
   .reveal{opacity:1;transform:none;transition:none}
 }
+.hero-cta{align-items:center}
+.seal{display:inline-flex;margin-left:6px}
+.seal img,.f-seal img{width:73px!important;height:79px!important;max-width:none}
+.f-seal{display:flex;align-items:center;gap:14px;color:#fff;font-weight:600;font-size:14px}
 </style>
 </head>
 <body>
@@ -323,6 +329,10 @@ footer a:hover{color:#fff}
         </ul>
         <div class="hero-cta">
           <a class="btn btn-blue" href="#plans">Explore treatments</a>
+          <span class="seal"><!-- LegitScript seal code, as supplied by LegitScript (do not edit or resize) -->
+<a href="https://www.legitscript.com/websites/?checker_keywords=smarterchoicemeds.com" target="_blank" title="Verify LegitScript Approval for www.smarterchoicemeds.com">
+  <img src="https://static.legitscript.com/seals/52560470.png" alt="Verify Approval for www.smarterchoicemeds.com" width="73" height="79" />
+</a></span>
         </div>
       </div>
     </div>
@@ -510,7 +520,7 @@ footer a:hover{color:#fff}
     <div class="final-in">
       <h2>Take control of your weight-loss journey with Smarter Choice Meds.</h2>
       <p>Complete a private online intake, connect with a licensed provider, and receive treatment if it is clinically appropriate.</p>
-      <a class="btn btn-blue" href="https://smarterchoicemeds.com/weight-loss-intake/">Start My GLP-1 Program</a>
+      <a class="btn btn-accent" href="https://smarterchoicemeds.com/weight-loss-intake/">Start My GLP-1 Program</a>
     </div>
   </div>
 </section>
@@ -543,7 +553,10 @@ footer a:hover{color:#fff}
       <p>The information on this website is for general informational purposes only and is not intended as a substitute for personalized medical advice, diagnosis, or treatment. Always consult your licensed healthcare provider regarding any medical concerns. This platform serves as an advertisement for healthcare services, not for any specific prescription medications.</p>
       <p>Disclaimer: FDA-approved brand-name medications, including Wegovy® and Ozempic®, are exclusively manufactured and distributed by Novo Nordisk®. Mounjaro® and Zepbound® are exclusively manufactured and distributed by Eli Lilly and Company®. Smarter Choice Meds is not affiliated with, endorsed by, or sponsored by any of these companies or their products.</p>
       <p>Please note that compounded medications are not reviewed or approved by the U.S. Food and Drug Administration (FDA) for safety or efficacy. However, they are prepared by licensed compounding pharmacies in compliance with Section 503A of the Federal Food, Drug, and Cosmetic Act, which allows for compounding of medications based on a valid patient-specific prescription from a licensed healthcare provider.</p>
-      <p><a class="ls-link" href="https://www.legitscript.com/websites/smarterchoicemeds.com/" target="_blank" rel="noopener">LegitScript-certified website &middot; verify certification</a></p>
+      <div class="f-seal"><!-- LegitScript seal code, as supplied by LegitScript (do not edit or resize) -->
+<a href="https://www.legitscript.com/websites/?checker_keywords=smarterchoicemeds.com" target="_blank" title="Verify LegitScript Approval for www.smarterchoicemeds.com">
+  <img src="https://static.legitscript.com/seals/52560470.png" alt="Verify Approval for www.smarterchoicemeds.com" width="73" height="79" />
+</a><span>LegitScript-certified website</span></div>
       <p>Copyright © 2026 Smarter Choice Meds LLC. All Rights Reserved.</p>
     </div>
   </div>
