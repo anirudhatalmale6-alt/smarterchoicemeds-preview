@@ -33,7 +33,7 @@ html{scroll-behavior:smooth}
 body{background:#fff;color:var(--ink);font:400 17px/1.6 var(--b);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1720px;margin:0 auto;padding:0 clamp(20px,3vw,48px)}
 .dot{color:var(--blue)}
 h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(--ink)}
 
@@ -46,7 +46,7 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .nav{position:sticky;top:10px;z-index:50;margin:12px 12px 0}
 .nav-in{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-radius:20px;box-shadow:0 6px 24px -10px rgba(20,26,46,.25);display:flex;align-items:center;
-  gap:20px;padding:12px 14px 12px 24px;max-width:1240px;margin:0 auto}
+  gap:20px;padding:12px 14px 12px 24px;max-width:1720px;margin:0 auto}
 .logo img{height:34px;width:auto}
 .links{display:flex;gap:28px;margin-left:auto;font:500 16px var(--b)}
 .links a:hover{color:var(--blue-d)}
@@ -116,7 +116,7 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .sec-sub{text-align:center;color:var(--body);max-width:640px;margin:0 auto 44px;font-size:18px}
 
 /* plans */
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1040px;margin:0 auto}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1400px;margin:0 auto}
 .plan{border-radius:var(--r);overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
 .plan-art{position:relative;height:300px;display:grid;place-items:center}
 .plan-art img{height:270px;width:auto;filter:drop-shadow(0 22px 22px rgba(0,0,0,.22));transform:rotate(-8deg)}
@@ -135,7 +135,7 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .feat{list-style:none;display:grid;gap:8px;margin-bottom:24px}
 .feat li{display:flex;gap:10px;align-items:center;font-weight:500}
 .plan-body .btn{margin-top:auto}
-.notes{max-width:1040px;margin:20px auto 0;border:1px solid var(--line);border-radius:20px;padding:20px 24px;font-size:15px;color:var(--body)}
+.notes{max-width:1400px;margin:20px auto 0;border:1px solid var(--line);border-radius:20px;padding:20px 24px;font-size:15px;color:var(--body)}
 .notes b{color:var(--ink)}
 
 /* program (big checklist card) */
