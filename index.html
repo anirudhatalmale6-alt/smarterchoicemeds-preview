@@ -75,10 +75,11 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 
 /* category cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-/* The three cards are sized to the screen so they are fully visible on
-   arrival (client request): never taller than what is left of the window
-   under the headline, never shorter than 300px. */
-.ccard{position:relative;border-radius:var(--r);overflow:hidden;height:clamp(300px,calc(100vh - 420px),440px);color:#fff;padding:28px;
+/* The three cards fill the rest of the first screen exactly (client request,
+   "even with the bottom of the page, like Gala"): the script below sets
+   --card-h to the space left under the headline, so nothing below them peeks
+   in cut off. The clamp() is the fallback if the script does not run. */
+.ccard{position:relative;border-radius:var(--r);overflow:hidden;height:var(--card-h,clamp(300px,calc(100vh - 420px),440px));color:#fff;padding:28px;
   display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;transition:transform .2s}
 .ccard:hover{transform:translateY(-3px)}
 .ccard h2{color:#fff;font-size:clamp(28px,2.6vw,36px);max-width:12ch}
@@ -90,7 +91,7 @@ h1,h2,h3{font-family:var(--h);letter-spacing:-.035em;line-height:1.02;color:var(
 .c-sema{background:radial-gradient(120% 90% at 85% 100%,#7fe0ae 0%,#2fae76 45%,#0d6b45 100%)}
 .c-tirz{background:radial-gradient(120% 90% at 85% 100%,#9fb2ff 0%,#4f6ff0 45%,#2335b8 100%)}
 .c-life{background:radial-gradient(120% 90% at 80% 100%,#cdb8ff 0%,#8a68f0 45%,#4b2fb5 100%)}
-.ccard .vial{position:absolute;right:9%;bottom:5%;height:72%;width:auto;z-index:1;
+.ccard .vial{position:absolute;right:9%;bottom:5%;height:min(72%,420px);width:auto;z-index:1;
   filter:drop-shadow(0 24px 26px rgba(0,0,0,.3));transform:rotate(8deg)}
 .ccard .person{position:absolute;right:0;bottom:0;height:100%;width:62%;object-fit:cover;z-index:1;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
@@ -192,6 +193,15 @@ footer a:hover{color:#fff}
 .f-legal{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:12.5px;line-height:1.6;display:grid;gap:12px;color:#9aa0b4}
 
 /* responsive */
+/* Short laptop screens: tighter top so the cards still get a useful height. */
+@media (max-height:780px) and (min-width:1061px){
+  .topbar{padding:8px 16px}
+  .panel{padding:20px 0 28px}
+  .hero h1{font-size:clamp(40px,4.4vw,62px);margin-top:6px}
+  .hero-side p{font-size:16px;margin-bottom:10px}
+  .ticks{margin-bottom:12px}
+  .cards{margin-top:20px}
+}
 @media (max-width:1060px){
   .links{display:none}
   .menu{display:block;margin-left:auto}
@@ -494,6 +504,21 @@ footer a:hover{color:#fff}
 </footer>
 
 <script>
+/* Size the hero cards to end at the bottom of the window (desktop only;
+   on phones they stack and keep their own height). */
+(function(){
+  var cards = document.querySelector('.cards');
+  function fit(){
+    if (window.innerWidth <= 1060) { document.documentElement.style.removeProperty('--card-h'); return; }
+    var top = cards.getBoundingClientRect().top + window.scrollY;
+    var h = Math.round(window.innerHeight - top - 16);
+    document.documentElement.style.setProperty('--card-h', Math.max(280, Math.min(h, 760)) + 'px');
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+
 /* Close the phone menu after a link in it is tapped. */
 document.querySelectorAll('#links a').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('links').classList.remove('open'); });
