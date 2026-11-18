@@ -242,6 +242,46 @@ footer a:hover{color:#fff}
   .f-top>div:first-child{grid-column:1/-1}
   footer{margin:8px}
 }
+/* Gala-style moving chips inside the product cards (approved wording only). */
+.chips{position:absolute;left:0;right:0;top:52%;overflow:hidden;z-index:0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.chips-track{display:flex;gap:10px;width:max-content;animation:chips 26s linear infinite}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:16px;padding:14px 18px;
+  font:600 14px var(--b);white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@keyframes chips{to{transform:translateX(-50%)}}
+.ccard .sub{background:none}
+
+/* Floating product chips over the doctor photo, like Gala's medication chips. */
+.float-chip{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:18px;padding:10px 16px 10px 10px;
+  color:var(--ink);font:700 15px var(--b);box-shadow:0 14px 30px -12px rgba(20,26,46,.45);animation:bob 5s ease-in-out infinite}
+.float-chip img{position:static!important;width:auto!important;height:54px!important;object-fit:contain!important}
+.fc1{left:7%;top:16%}
+.fc2{right:7%;bottom:14%;animation-delay:-2.5s}
+@keyframes bob{50%{transform:translateY(-8px)}}
+
+.ls-link{color:#fff;text-decoration:underline;font-weight:600}
+
+/* Phones: a "Start my program" bar once the visitor scrolls past the top. */
+.sticky-cta{display:none}
+@media (max-width:680px){
+  .sticky-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;text-align:center;
+    background:var(--blue);color:#fff;font:700 17px var(--b);padding:16px;border-radius:999px;
+    box-shadow:0 12px 30px -10px rgba(47,95,208,.6);transform:translateY(140%);transition:transform .25s}
+  .sticky-cta.show{transform:none}
+  .chips{display:none}
+  footer{padding-bottom:90px}
+  .float-chip{font-size:13px;padding:8px 12px 8px 8px}
+  .float-chip img{height:40px!important}
+}
+
+/* Sections rise in gently as they come into view. */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .chips-track,.float-chip{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -294,6 +334,7 @@ footer a:hover{color:#fff}
           <h2>Compounded Semaglutide</h2>
         </div>
         <span class="arrow">&rarr;</span>
+        <div class="chips" aria-hidden="true"><div class="chips-track"><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span></div></div>
         <img class="vial" src="img/vial-sema.webp" alt="Compounded Semaglutide injection vial" width="360" height="962">
         <div class="sub">Provider-personalized GLP-1 treatment path for eligible patients.</div>
       </a>
@@ -303,6 +344,7 @@ footer a:hover{color:#fff}
           <h2>Compounded Tirzepatide</h2>
         </div>
         <span class="arrow">&rarr;</span>
+        <div class="chips" aria-hidden="true"><div class="chips-track"><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span><span class="chip">Provider review</span><span class="chip">Medication when prescribed</span><span class="chip">Ongoing support</span><span class="chip">Provider review included</span></div></div>
         <img class="vial" src="img/vial-tirz.webp" alt="Compounded Tirzepatide injection vial" width="360" height="938">
         <div class="sub">GLP-1 + GIP treatment path reviewed by a licensed provider.</div>
       </a>
@@ -401,7 +443,10 @@ footer a:hover{color:#fff}
       <a class="btn btn-white" href="https://smarterchoicemeds.com/weight-loss-intake/">See if you qualify</a>
       <p class="fine2">Prescription products require an online consultation with a healthcare professional who will determine whether a prescription is appropriate. Compounded medications are not FDA-approved and have not been reviewed by the FDA for safety, effectiveness, or quality.</p>
     </div>
-    <div class="prog-img"><img src="img/doctor.webp" alt="Smiling doctor waving during a telehealth consultation" width="1200" height="801" loading="lazy"></div>
+    <div class="prog-img"><img src="img/doctor.webp" alt="Smiling doctor waving during a telehealth consultation" width="1200" height="801" loading="lazy">
+      <a class="float-chip fc1" href="#plans"><img src="img/vial-sema.webp" alt="" width="360" height="962"><span>Compounded Semaglutide</span></a>
+      <a class="float-chip fc2" href="#plans"><img src="img/vial-tirz.webp" alt="" width="360" height="938"><span>Compounded Tirzepatide</span></a>
+    </div>
   </div>
 
   <div class="prog p-green">
@@ -498,10 +543,13 @@ footer a:hover{color:#fff}
       <p>The information on this website is for general informational purposes only and is not intended as a substitute for personalized medical advice, diagnosis, or treatment. Always consult your licensed healthcare provider regarding any medical concerns. This platform serves as an advertisement for healthcare services, not for any specific prescription medications.</p>
       <p>Disclaimer: FDA-approved brand-name medications, including Wegovy® and Ozempic®, are exclusively manufactured and distributed by Novo Nordisk®. Mounjaro® and Zepbound® are exclusively manufactured and distributed by Eli Lilly and Company®. Smarter Choice Meds is not affiliated with, endorsed by, or sponsored by any of these companies or their products.</p>
       <p>Please note that compounded medications are not reviewed or approved by the U.S. Food and Drug Administration (FDA) for safety or efficacy. However, they are prepared by licensed compounding pharmacies in compliance with Section 503A of the Federal Food, Drug, and Cosmetic Act, which allows for compounding of medications based on a valid patient-specific prescription from a licensed healthcare provider.</p>
+      <p><a class="ls-link" href="https://www.legitscript.com/websites/smarterchoicemeds.com/" target="_blank" rel="noopener">LegitScript-certified website &middot; verify certification</a></p>
       <p>Copyright © 2026 Smarter Choice Meds LLC. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
+
+<a class="sticky-cta" id="stickyCta" href="https://smarterchoicemeds.com/weight-loss-intake/">Start my program</a>
 
 <script>
 /* Size the hero cards to end at the bottom of the window (desktop only;
@@ -517,6 +565,23 @@ footer a:hover{color:#fff}
   fit();
   window.addEventListener('resize', fit);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+
+/* Mobile sticky button: hidden on the first screen, shown after it. */
+(function(){
+  var b = document.getElementById('stickyCta');
+  function on(){ b.classList.toggle('show', window.scrollY > window.innerHeight * 0.8); }
+  window.addEventListener('scroll', on, {passive: true}); on();
+})();
+
+/* Reveal sections on scroll. Without IntersectionObserver everything simply shows. */
+(function(){
+  var els = document.querySelectorAll('.plan, .prog, .step, .faq details, .final, .notes, .minis .mini');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin: '0px 0px -8% 0px'});
+  els.forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
 })();
 
 /* Close the phone menu after a link in it is tapped. */
